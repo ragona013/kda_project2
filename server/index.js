@@ -96,6 +96,6 @@ if (getMeta('theme_default') !== 'B') {
   reset(true);
 }
 if (getMeta('week') === null) reset(true); // 첫 실행: 데모 데이터
-app.listen(PORT, process.env.HOST || (process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1'), () => {
+app.listen(PORT, process.env.HOST || (process.env.NODE_ENV === 'production' || process.env.RAILWAY_ENVIRONMENT_NAME ? '0.0.0.0' : '127.0.0.1'), () => {
   console.log(`[stock-pet] API http://localhost:${PORT}  · 시세: ${source} · 주문: ${BROKER_MODE} · 모의 주차: ${currentWeek()}`);
 });
